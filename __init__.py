@@ -30,7 +30,7 @@ def main():
 
     bullets = []
     while running:
-        time.sleep(0.01)
+        time.sleep(0.1)
         player = Player(ypos, xpos, screen)
         space.background()
         if space.move == True:
@@ -51,9 +51,10 @@ def main():
 
         xpos = player.new_pos
         enemy1.move()
-        if bullet.position_y <= (enemy1.Y + 110) and bullet.position_x >= enemy1.X and bullet.position_x <= enemy1.XX:
-            bullet.make = False
-            enemy1.die()
+        for bullet in range(len(bullets)):
+            if bullets[bullet].position_y <= (enemy1.Y + 110) and bullets[bullet].position_x >= enemy1.X and bullets[bullet].position_x <= enemy1.XX:
+                bullets[bullet].make = False
+                enemy1.die()
 
         pygame.display.update()
 
