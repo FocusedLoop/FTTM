@@ -1,8 +1,16 @@
 import pygame
+<<<<<<< HEAD
 import Player
 import Bullet
 import Enemy
 import Menu
+=======
+from Player import Player
+from Bullet import Bullet
+from Enemy import enemy
+from Space import Space
+from Menu import menue
+>>>>>>> 638d6c3028dd318996a62cb6a9f54731690d1eb2
 
 def main():
     Menu.Menue()
