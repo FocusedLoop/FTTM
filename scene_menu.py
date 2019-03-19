@@ -1,19 +1,19 @@
 import pygame
 import time
 
-def menue():
+def menu():
     pygame.init()
     pygame.font.init()
     myfont = pygame.font.SysFont('Comic Sans MS', 100)
     screen_width = 1366
     screen_height = 768
     number = 4
-    logo = pygame.image.load("logo.png")
-    background = pygame.image.load("Moon.png")
+    logo = pygame.image.load("images/logo.png")
+    background = pygame.image.load("images/Moon.png")
     pygame.display.set_icon(logo)
     pygame.display.set_caption("Fly to Space")
     screen = pygame.display.set_mode((1366, 768), pygame.FULLSCREEN)
-    start = pygame.image.load("Start.png").convert()
+    start = pygame.image.load("images/Start.png").convert()
     start_x = screen_width / 2 - 160
     start_y = 200
     pygame.display.flip()
@@ -35,4 +35,3 @@ def menue():
                     pygame.display.flip()
                     time.sleep(1)
                 running = False
-

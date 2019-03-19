@@ -5,7 +5,7 @@ class Bullet:
         self.position_x = position_x + 110
         self.position_y = position_y
         self.screen = screen
-        self.laser = pygame.image.load("Laser.png")
+        self.laser = pygame.image.load("images/Laser.png")
         self.speed = -10
         self.make = False
 
@@ -18,4 +18,3 @@ class Bullet:
             self.screen.blit(self.laser, (self.position_x, self.position_y))
             if self.position_y < 0:
                 self.make = False
-
