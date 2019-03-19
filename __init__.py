@@ -26,6 +26,8 @@ def main():
     enemy1 = enemy(screen, xpos)
     running = True
 
+
+    bullets = []
     while running:
         player = Player(ypos, xpos, screen)
         space.background()
@@ -35,10 +37,16 @@ def main():
         screen.blit(image, (xpos,ypos))
         player.move()
         player.shoot()
+
         if player.go == True:
-            bullet = Bullet(xpos, ypos, screen)
-            bullet.create()
-        bullet.update()
+            t_bullet = Bullet(xpos, ypos, screen)
+            t_bullet.create()
+            bullets.append(t_bullet)
+
+
+        for bullet in range(len(bullets)):
+            bullets[bullet].update()
+
         xpos = player.new_pos
         enemy1.move()
         if bullet.position_y <= (enemy1.Y + 110) and bullet.position_x >= enemy1.X and bullet.position_x <= enemy1.XX:
