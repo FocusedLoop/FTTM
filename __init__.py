@@ -1,19 +1,12 @@
 import pygame
-<<<<<<< HEAD
-import Player
-import Bullet
-import Enemy
-import Menu
-=======
-from Player import Player
-from Bullet import Bullet
-from Enemy import enemy
-from Space import Space
-from Menu import menue
->>>>>>> 638d6c3028dd318996a62cb6a9f54731690d1eb2
+from FTTM.Player import Player
+from FTTM.Bullet import Bullet
+from FTTM.Enemy import enemy
+from FTTM.Space import Space
+from FTTM.Menu import menue
 
 def main():
-    Menu.Menue()
+    menue()
     pygame.init()
     screen_width = 1366
     screen_height = 768
@@ -24,7 +17,7 @@ def main():
     image = pygame.image.load("Ship.png")
     background = pygame.image.load("space.png")
 
-    space = Space.Space(screen_height)
+    space = Space(screen_height)
     background_size = background.get_size()
     pygame.display.set_icon(logo)
     pygame.display.set_caption("Fly to Space")
