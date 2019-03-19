@@ -1,4 +1,5 @@
 import pygame
+import time
 from Player import Player
 from Bullet import Bullet
 from Enemy import enemy
@@ -29,6 +30,7 @@ def main():
 
     bullets = []
     while running:
+        time.sleep(0.01)
         player = Player(ypos, xpos, screen)
         space.background()
         if space.move == True:
