@@ -1,7 +1,7 @@
 import pygame
 import time
 
-def menue():
+def Menue():
     pygame.init()
     pygame.font.init()
     myfont = pygame.font.SysFont('Comic Sans MS', 100)
@@ -35,4 +35,3 @@ def menue():
                     pygame.display.flip()
                     time.sleep(1)
                 running = False
-
