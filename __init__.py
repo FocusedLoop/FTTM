@@ -1,9 +1,9 @@
 import pygame
-from FTTM.Player import Player
-from FTTM.Bullet import Bullet
-from FTTM.Enemy import enemy
-from FTTM.Space import Space
-from FTTM.Menu import menue
+from Player import Player
+from Bullet import Bullet
+from Enemy import enemy
+from Space import Space
+from Menu import menue
 
 def main():
     menue()
