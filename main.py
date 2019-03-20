@@ -24,13 +24,16 @@ def main():
     pygame.display.set_caption("Fly to Space")
     screen = pygame.display.set_mode((background_size), pygame.FULLSCREEN)
     bullet = object_bullet.Bullet(xpos, ypos, screen)
-    enemy1 = object_enemy.Enemy(screen, xpos)
+    enemy = object_enemy.Enemy(screen, screen_width)
     running = True
     bullets = []
+    enemies = []
     bullet_timer = 0
+    enemy_timer = 0
 
     while running:
         bullet_timer += 1
+        enemy_timer += 1
         player = object_player.Player(ypos, xpos, screen)
 
         space.background()
@@ -41,6 +44,11 @@ def main():
 
         player.move()
         player.shoot()
+        if enemy_timer >= 30:
+            t_enemy = object_enemy.Enemy(screen, screen_width)
+            t_enemy.create()
+            enemies.append(t_enemy)
+            enemy_timer = 0
 
         if player.go == True:
             if bullet_timer > 30:
@@ -49,17 +57,18 @@ def main():
                 bullets.append(t_bullet)
                 bullet_timer = 0
 
-
         for bullet in range(len(bullets)):
             bullets[bullet].update()
 
+        for enemy in range(len(enemies)):
+            enemies[enemy].move()
+
         xpos = player.new_pos
-        enemy1.move()
 
         for bullet in range(len(bullets)):
-            if bullets[bullet].position_y <= (enemy1.Y + 110) and bullets[bullet].position_x >= enemy1.X and bullets[bullet].position_x <= enemy1.XX:
+            if bullets[bullet].position_y <= (enemies[enemy].Y + 110) and bullets[bullet].position_x >= enemies[enemy].spawn and bullets[bullet].position_x <= enemies[enemy].XX:
                 bullets[bullet].make = False
-                enemy1.die()
+                enemies[enemy].make = False
 
         pygame.display.update()
 
