@@ -19,10 +19,10 @@ class Enemy:
     def move(self):
         if self.make == True:
             self.Y += self.speed
-            self.screen.blit((self.image), (self.spawn, self.Y)
+            self.screen.blit((self.image), (self.spawn, self.Y))
             if self.Y < -100:
                 self.make = False
 
     def die(self):
-        self.spawn += 1000
-        self.Y += 1000
+        self.spawn += 10000
+        self.Y += 10000

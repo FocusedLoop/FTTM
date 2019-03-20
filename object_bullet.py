@@ -18,3 +18,7 @@ class Bullet:
             self.screen.blit(self.laser, (self.position_x, self.position_y))
             if self.position_y < 0:
                 self.make = False
+
+    def die(self):
+        self.position_x = 10000
+        self.position_y = 10000

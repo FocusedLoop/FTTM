@@ -66,9 +66,12 @@ def main():
         xpos = player.new_pos
 
         for bullet in range(len(bullets)):
-            if bullets[bullet].position_y <= (enemies[enemy].Y + 110) and bullets[bullet].position_x >= enemies[enemy].spawn and bullets[bullet].position_x <= enemies[enemy].XX:
-                bullets[bullet].make = False
-                enemies[enemy].make = False
+            for enemy in range(len(enemies)):
+                if bullets[bullet].position_y <= (enemies[enemy].Y + 110) and bullets[bullet].position_x >= enemies[enemy].spawn and bullets[bullet].position_x <= enemies[enemy].XX:
+                    bullets[bullet].make = False
+                    bullets[bullet].die()
+                    enemies[enemy].make = False
+                    enemies[enemy].die()
 
         pygame.display.update()
 
