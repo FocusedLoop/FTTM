@@ -51,7 +51,7 @@ def main():
             enemy_timer = 0
 
         if player.go == True:
-            if bullet_timer > 30:
+            if bullet_timer > 15:
                 t_bullet = object_bullet.Bullet(xpos, ypos, screen)
                 t_bullet.create()
                 bullets.append(t_bullet)
@@ -67,11 +67,11 @@ def main():
 
         for bullet in range(len(bullets)):
             for enemy in range(len(enemies)):
-                if bullets[bullet].position_y <= (enemies[enemy].Y + 110) and bullets[bullet].position_x >= enemies[enemy].spawn and bullets[bullet].position_x <= enemies[enemy].XX:
-                    bullets[bullet].make = False
+                if bullets[bullet].position_y < (enemies[enemy].Y + 110) and bullets[bullet].position_x > enemies[enemy].spawn and bullets[bullet].position_x < enemies[enemy].XX:
                     bullets[bullet].die()
-                    enemies[enemy].make = False
+                    bullets[bullet].make = False
                     enemies[enemy].die()
+                    enemies[enemy].make = False
 
         pygame.display.update()
 
